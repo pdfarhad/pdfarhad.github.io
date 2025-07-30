@@ -1,44 +1,516 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Farhad Alam Bhuiyan</title>
-  <link rel="stylesheet" type="text/css" href="/css/main.css" />
-</head>
-<!-- <body>
-  <nav>
-    <ul>
-    </ul>
-  </nav> -->
-  <div class="container">
-    <div class="blurb">
-      <img src="pd.gif" alt="Farhad Alam" style="width:228px;height:228px;" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Farhad Alam Bhuiyan - Research Engineer</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+        }
 
-      <h1>Welcome to My World!</h1>
-      <p>
-        Hey there! I'm <strong>Farhad Alam Bhuiyan</strong>, a passionate aspirant in the realms of Data Science and Solution Architecture. Currently residing in Dhaka, I'm privileged to lead the Research and Development team at <strong>Penta Global Ltd.</strong> With a robust <strong>12-year industrial background</strong> coupled with <strong>5 years of research and teaching</strong> experiences, I'm driven to explore and innovate.
-      </p>
-      <p>
-        My journey includes impactful stints at <strong>Praava Health Ltd.</strong> and <strong>Shohoz</strong>, two prominent startups in Bangladesh. I even found myself leading a dynamic team at <strong>IntelligentMachines</strong>, shaping cutting-edge solutions for bKash Merchandisers.
-      </p>
-      <p>
-        During my tenure at <strong>Dohatec</strong>, I thrived in creating advanced data visualization tools, harnessing technologies like <i>Python, Django, Typescript, Angular6, D3js</i>. I'm committed to organization, and I'm always excited to embrace new learning experiences.
-      </p>
-      <p>
-        Equipped with a Bachelor's in <strong>Computer Science and Engineering</strong> from the prestigious <strong>University of Dhaka</strong>, I thrive on solving problems and enhancing lives through software engineering.
-      </p>
-      <p>
-        My values are rooted in ethical conduct, and I strive to treat every encounter as I'd wish to be treated. If you'd like to connect, drop me a line at <strong>farhad.alam.bhuiyan@gmail.com</strong>.
-      </p>
-    </div>
-    <!-- /.blurb -->
-  </div>
-  <!-- /.container -->
-  <footer>
-    <ul>
-      <li><a href="mailto:pdcsedu@gmail.com">Email</a></li>
-      <li><a href="http://stackoverflow.com/users/1417742/pd-farhad">StackOverflow</a></li>
-      <li><a href="https://bd.linkedin.com/in/farhadnaeem">LinkedIn</a></li>
-    </ul>
-  </footer>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--light-gray);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 0;
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-weight: 400;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-header h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .experience-header .date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .company {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-category p {
+            line-height: 1.8;
+        }
+
+        /* Publications */
+        .publication-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        .publication-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item .venue {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .publication-item .date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Blog */
+        .blog-post {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .blog-post h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-post .meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post .excerpt {
+            color: var(--text-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav li {
+                margin: 0.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .experience-header .date {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Md Farhad Alam Bhuiyan</h1>
+            <p>Research Engineer | Data Scientist | Assistant Professor</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about" onclick="showSection('about')">About</a></li>
+                <li><a href="#experience" onclick="showSection('experience')">Experience</a></li>
+                <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
+                <li><a href="#publications" onclick="showSection('publications')">Publications</a></li>
+                <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="active">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="contact-info">
+                    <h3>Contact</h3>
+                    <p>📍 Dhaka, Bangladesh</p>
+                    <p>📧 <a href="mailto:pdcsedu@gmail.com">pdcsedu@gmail.com</a></p>
+                    <p>📱 +8801534575354</p>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/pdfarhad" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/farhadnaeem/" target="_blank">LinkedIn</a>
+                        <a href="https://stackoverflow.com/users/your-id/pdfarhad" target="_blank">Stack Overflow</a>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <p>A highly accomplished research engineer with over a decade of extensive experience in software engineering, data engineering, and data science. Adept in architecting scalable, robust, and efficient microservices solutions and a passion for imparting knowledge as an Assistant Professor.</p>
+                    
+                    <p>Proven success in leading technical teams and collaborating with cross-functional teams including products to deliver outstanding results. Committed to ongoing professional growth and staying at the cutting edge of industry advancements.</p>
+                    
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Current Positions</h3>
+                    <ul>
+                        <li><strong>Head of Research and Development</strong> at Penta Global Ltd.</li>
+                        <li><strong>Data Engineering Consultant</strong> at International Growth Center</li>
+                        <li><strong>Co-director</strong> at Center for Computational & Data Sciences, IUB</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Head of Research and Development</h3>
+                        <p class="company">Penta Global Ltd.</p>
+                    </div>
+                    <span class="date">February 2021 – Present</span>
+                </div>
+                <ul>
+                    <li>Leading the R&D team, a combination of the Data team and Software team</li>
+                    <li>Built a highly scalable (8000 RPS) cross-platform mobile application for the Bangladesh Election Commission. 1M downloads in first 3 months</li>
+                    <li>Built a mobile app, used by 42k Presiding Officers during the National Election</li>
+                    <li>Built an Election management system and Online nomination service for the Bangladesh Election Commission</li>
+                    <li>Built a microservice-based data fusion platform. 18 law agencies in Bangladesh use it 24x7</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Data Engineering Consultant</h3>
+                        <p class="company">International Growth Center</p>
+                    </div>
+                    <span class="date">April 2025 – Present</span>
+                </div>
+                <ul>
+                    <li>Designed and implemented automated data collection systems using modern techniques to extract and harmonize large-scale national and subnational datasets</li>
+                    <li>Engineered robust database architectures handling high-volume data with optimized query performance and security</li>
+                    <li>Developed end-to-end data pipelines automating the processing, validation, and standardization of disparate data sources</li>
+                    <li>Created interactive data visualization dashboards tailored to country-specific requirements</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Co-director</h3>
+                        <p class="company">Center for Computational & Data Sciences, IUB</p>
+                    </div>
+                    <span class="date">2023 – 2025</span>
+                </div>
+                <p>At CCDS, we envision a future of transformative progress, where research, technology, and human-centric design harmoniously come together. Working on industrial products to increase collaboration between academia research and industry, and taking care of industry standard training programs.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <p>Python, Go, JavaScript</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <p>FastAPI, Django, Flask, Firebase, NodeJS, Serverless Architecture, Microservices, Docker, Kubernetes</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data Engineering</h3>
+                    <p>Azure Databricks, Apache Airflow, Apache NiFi, PySpark, ELK stack, Kafka, Spark Structured Streaming</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <p>PostgreSQL, MySQL, BigQuery, RedShift, MongoDB, Neo4j, Cassandra</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <p>Scikit-learn, PyTorch, TensorFlow, Jupyter</p>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data Visualization</h3>
+                    <p>Data Lakehouse, Metabase, Streamlit, Superset, Matplotlib, Seaborn, D3</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h2>Publications</h2>
+            
+            <div class="publication-item">
+                <h3>BanTH: A Multi-label Hate Speech Detection Dataset for Transliterated Bangla</h3>
+                <p class="venue">NAACL (A*)</p>
+                <p class="date">May 2025</p>
+            </div>
+            
+            <div class="publication-item">
+                <h3>BanglaTLit: A Benchmark Dataset for Back-Transliteration of Romanized Bangla</h3>
+                <p class="venue">EMNLP (A*)</p>
+                <p class="date">November 2024</p>
+            </div>
+            
+            <div class="publication-item">
+                <h3>Penta ML at EXIST 2024: Tagging Sexism in Online Multimodal Content With Attention-enhanced Modal Context</h3>
+                <p class="venue">EXIST Lab at CLEF 2024</p>
+                <p class="date">July 2024</p>
+            </div>
+            
+            <div class="publication-item">
+                <h3>ChitroJera: A Regionally Relevant Visual Question Answering Dataset for Bangla</h3>
+                <p class="venue">NAACL (Waiting for review)</p>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog">
+            <h2>Blog</h2>
+            
+            <div class="blog-post" onclick="alert('Blog post functionality coming soon! This will link to individual blog posts.')">
+                <h3>Welcome to My Blog</h3>
+                <p class="meta">July 30, 2025 • 2 min read</p>
+                <p class="excerpt">I'm excited to start sharing my thoughts and experiences in software engineering, data science, and research. Stay tuned for posts about technology trends, research insights, and tutorials...</p>
+            </div>
+            
+            <div class="blog-post" onclick="alert('Blog post functionality coming soon! This will link to individual blog posts.')">
+                <h3>Building Scalable Microservices for Election Systems</h3>
+                <p class="meta">Coming Soon</p>
+                <p class="excerpt">Learn about the challenges and solutions in building a highly scalable system that handles 8000 requests per second for the Bangladesh Election Commission...</p>
+            </div>
+            
+            <div class="blog-post" onclick="alert('Blog post functionality coming soon! This will link to individual blog posts.')">
+                <h3>Data Engineering Best Practices</h3>
+                <p class="meta">Coming Soon</p>
+                <p class="excerpt">A comprehensive guide to building robust data pipelines, from collection to visualization, based on my experience with national-scale datasets...</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+            
+            // Update URL hash
+            window.location.hash = sectionId;
+        }
+
+        // Handle initial load and back/forward navigation
+        function handleHashChange() {
+            const hash = window.location.hash.slice(1) || 'about';
+            showSection(hash);
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('load', handleHashChange);
+    </script>
 </body>
 </html>
