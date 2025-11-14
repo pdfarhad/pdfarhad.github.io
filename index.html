@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Farhad Alam Bhuiyan - Research Engineer</title>
+    <title>Md Farhad Alam Bhuiyan - Research Engineer & Data Scientist</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --text-color: #333;
-            --bg-color: #ffffff;
-            --light-gray: #f8f9fa;
-            --border-color: #e9ecef;
+            --bg-primary: #0a0e27;
+            --bg-secondary: #151932;
+            --bg-card: #1e2139;
+            --bg-hover: #252849;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --accent-success: #10b981;
+            --accent-warning: #f59e0b;
+            --border-color: #2a2e5a;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
 
         * {
@@ -21,44 +29,150 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, -30px) rotate(180deg); }
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--accent-primary);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+            animation: profileGlow 3s infinite alternate;
+        }
+
+        @keyframes profileGlow {
+            0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            100% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.5); }
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .header-text .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .header-text .description {
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .contact-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .badge:hover {
+            background: var(--bg-hover);
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
         }
 
         /* Navigation */
         nav {
-            background-color: var(--light-gray);
+            background: var(--bg-secondary);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(21, 25, 50, 0.9);
         }
 
         nav ul {
@@ -74,206 +188,286 @@
         }
 
         nav a {
+            color: var(--text-secondary);
             text-decoration: none;
-            color: var(--primary-color);
             font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: var(--secondary-color);
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s;
         }
 
-        /* Sections */
-        section {
+        nav a:hover, nav a.active {
+            color: var(--text-primary);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        /* Download Resume Button */
+        .download-resume {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-resume:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Main Content */
+        main {
             padding: 3rem 0;
+        }
+
+        section {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
         section.active {
             display: block;
         }
 
-        section h2 {
-            font-size: 2rem;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: var(--primary-color);
-            font-weight: 400;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            background-color: var(--light-gray);
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .contact-info h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+        .card:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent-primary);
+            transform: translateX(5px);
         }
 
-        .contact-info p {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin-right: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Experience */
-        .experience-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-
-        .experience-header {
+        .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
+            align-items: flex-start;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .experience-header h3 {
-            color: var(--primary-color);
-            font-size: 1.3rem;
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
-        .experience-header .date {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .company {
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item ul {
-            margin-left: 1.5rem;
+        .card-subtitle {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
             margin-top: 0.5rem;
         }
 
-        .experience-item li {
-            margin-bottom: 0.5rem;
+        .card-date {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            padding: 0.3rem 0.8rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
         }
 
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background-color: var(--light-gray);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .skill-category p {
+        .card-content {
+            color: var(--text-secondary);
             line-height: 1.8;
         }
 
-        /* Publications */
-        .publication-item {
-            margin-bottom: 1.5rem;
+        .card-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .card-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             padding: 1.5rem;
-            background-color: var(--light-gray);
-            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        .publication-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-item .venue {
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
-        .publication-item .date {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Blog */
-        .blog-post {
-            margin-bottom: 2rem;
-            padding: 2rem;
-            background-color: var(--light-gray);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .blog-post:hover {
+        .skill-card:hover {
+            border-color: var(--accent-secondary);
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
         }
 
-        .blog-post h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-post .meta {
-            color: #666;
-            font-size: 0.9rem;
+        .skill-card h3 {
+            color: var(--accent-secondary);
             margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .blog-post .excerpt {
-            color: var(--text-color);
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Publications */
+        .publication-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .publication-card:hover {
+            background: var(--bg-hover);
+            transform: translateX(5px);
+        }
+
+        .publication-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .publication-venue {
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .publication-status {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .info-card h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: var(--accent-primary);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            header h1 {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
                 font-size: 2rem;
             }
 
@@ -281,36 +475,72 @@
                 margin: 0.5rem;
             }
 
-            .about-content {
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
-            .experience-header {
+            .card-header {
                 flex-direction: column;
             }
 
-            .experience-header .date {
-                margin-top: 0.5rem;
+            .download-resume {
+                bottom: 20px;
+                right: 20px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <h1>Md Farhad Alam Bhuiyan</h1>
-            <p>Research Engineer | Data Scientist | Assistant Professor</p>
+            <div class="header-content">
+                <div class="profile-image">
+                    <img src="photo.jpg" alt="Md Farhad Alam Bhuiyan">
+                </div>
+                <div class="header-text">
+                    <h1>Md Farhad Alam Bhuiyan</h1>
+                    <p class="subtitle">Research Engineer | Data Scientist | CTO</p>
+                    <p class="description">
+                        A highly accomplished research engineer with over a decade of experience in software engineering,
+                        data engineering, and data science. Specialized in architecting scalable microservices and leading
+                        technical teams. Currently leading R&D at Penta Global, co-founding krait.io, and driving technology
+                        initiatives at National Citizens Party.
+                    </p>
+                    <div class="contact-badges">
+                        <a href="mailto:pdcsedu@gmail.com" class="badge">
+                            <span>✉</span> pdcsedu@gmail.com
+                        </a>
+                        <a href="tel:+8801534575354" class="badge">
+                            <span>📱</span> +8801534575354
+                        </a>
+                        <a href="https://github.com/pdfarhad" target="_blank" class="badge">
+                            <span>💻</span> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/farhadnaeem/" target="_blank" class="badge">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="https://stackoverflow.com/users/1417742/pdfarhad" target="_blank" class="badge">
+                            <span>📚</span> Stack Overflow
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" class="badge">
+                            <span>🎓</span> Google Scholar
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#about" onclick="showSection('about')">About</a></li>
+                <li><a href="#about" onclick="showSection('about')" class="active">About</a></li>
                 <li><a href="#experience" onclick="showSection('experience')">Experience</a></li>
                 <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
                 <li><a href="#publications" onclick="showSection('publications')">Publications</a></li>
-                <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                <li><a href="#education" onclick="showSection('education')">Education</a></li>
             </ul>
         </div>
     </nav>
@@ -318,187 +548,393 @@
     <main class="container">
         <!-- About Section -->
         <section id="about" class="active">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="contact-info">
-                    <h3>Contact</h3>
-                    <p>📍 Dhaka, Bangladesh</p>
-                    <p>📧 <a href="mailto:pdcsedu@gmail.com">pdcsedu@gmail.com</a></p>
-                    <p>📱 +8801534575354</p>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/pdfarhad" target="_blank">GitHub</a>
-                        <a href="https://www.linkedin.com/in/farhadnaeem/" target="_blank">LinkedIn</a>
-                        <a href="https://stackoverflow.com/users/your-id/pdfarhad" target="_blank">Stack Overflow</a>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="info-card">
+                    <h3>Current Positions</h3>
+                    <div class="info-item">
+                        <span>🚀</span>
+                        <div>
+                            <strong>Co-Founder & CTO</strong><br>
+                            <span style="color: var(--text-tertiary);">krait.io</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span>🔬</span>
+                        <div>
+                            <strong>Head of R&D</strong><br>
+                            <span style="color: var(--text-tertiary);">Penta Global Ltd.</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span>📊</span>
+                        <div>
+                            <strong>Data Consultant</strong><br>
+                            <span style="color: var(--text-tertiary);">International Growth Center</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span>🏛️</span>
+                        <div>
+                            <strong>EC Member & IT Cell Head</strong><br>
+                            <span style="color: var(--text-tertiary);">National Citizens Party</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="about-text">
-                    <p>A highly accomplished research engineer with over a decade of extensive experience in software engineering, data engineering, and data science. Adept in architecting scalable, robust, and efficient microservices solutions and a passion for imparting knowledge as an Assistant Professor.</p>
-                    
-                    <p>Proven success in leading technical teams and collaborating with cross-functional teams including products to deliver outstanding results. Committed to ongoing professional growth and staying at the cutting edge of industry advancements.</p>
-                    
-                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Current Positions</h3>
-                    <ul>
-                        <li><strong>Head of Research and Development</strong> at Penta Global Ltd.</li>
-                        <li><strong>Data Engineering Consultant</strong> at International Growth Center</li>
-                        <li><strong>Co-director</strong> at Center for Computational & Data Sciences, IUB</li>
-                    </ul>
+                <div class="info-card">
+                    <h3>Professional Summary</h3>
+                    <p style="line-height: 1.8; color: var(--text-secondary);">
+                        With over 12 years of industry experience and 5 years in research and teaching, I specialize in
+                        building scalable, robust, and efficient solutions. My expertise spans across software engineering,
+                        data engineering, and data science, with a proven track record of leading technical teams and
+                        delivering impactful projects.
+                    </p>
+                    <p style="line-height: 1.8; color: var(--text-secondary); margin-top: 1rem;">
+                        I've successfully built highly scalable applications handling 8000+ RPS, developed data fusion
+                        platforms used by 18 law enforcement agencies, and conducted cutting-edge research in NLP and
+                        computer vision. My work bridges the gap between academic research and industry applications,
+                        focusing on real-world impact and innovation.
+                    </p>
+                    <p style="line-height: 1.8; color: var(--text-secondary); margin-top: 1rem;">
+                        Currently, I'm leading multiple initiatives including an advanced security platform at krait.io,
+                        research projects on trade-based money laundering with Bangladesh Bank, and digital transformation
+                        efforts at the National Citizens Party.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
         <section id="experience">
-            <h2>Experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="card">
+                <div class="card-header">
                     <div>
-                        <h3>Head of Research and Development</h3>
-                        <p class="company">Penta Global Ltd.</p>
+                        <div class="card-title">Co-Founder and CTO</div>
+                        <div class="card-subtitle">krait.io</div>
                     </div>
-                    <span class="date">February 2021 – Present</span>
+                    <span class="card-date">2024 - Present</span>
                 </div>
-                <ul>
-                    <li>Leading the R&D team, a combination of the Data team and Software team</li>
-                    <li>Built a highly scalable (8000 RPS) cross-platform mobile application for the Bangladesh Election Commission. 1M downloads in first 3 months</li>
-                    <li>Built a mobile app, used by 42k Presiding Officers during the National Election</li>
-                    <li>Built an Election management system and Online nomination service for the Bangladesh Election Commission</li>
-                    <li>Built a microservice-based data fusion platform. 18 law agencies in Bangladesh use it 24x7</li>
-                </ul>
+                <div class="card-content">
+                    <p>Building an advanced security platform that provides comprehensive application security testing capabilities including:</p>
+                    <ul>
+                        <li>SAST (Static Application Security Testing)</li>
+                        <li>DAST (Dynamic Application Security Testing)</li>
+                        <li>SCA (Software Composition Analysis)</li>
+                        <li>Container scanning and vulnerability assessment</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
+            <div class="card">
+                <div class="card-header">
                     <div>
-                        <h3>Data Engineering Consultant</h3>
-                        <p class="company">International Growth Center</p>
+                        <div class="card-title">EC Member, Joint Member Secretary & IT Cell Head</div>
+                        <div class="card-subtitle">National Citizens Party (NCP)</div>
                     </div>
-                    <span class="date">April 2025 – Present</span>
+                    <span class="card-date">2024 - Present</span>
                 </div>
-                <ul>
-                    <li>Designed and implemented automated data collection systems using modern techniques to extract and harmonize large-scale national and subnational datasets</li>
-                    <li>Engineered robust database architectures handling high-volume data with optimized query performance and security</li>
-                    <li>Developed end-to-end data pipelines automating the processing, validation, and standardization of disparate data sources</li>
-                    <li>Created interactive data visualization dashboards tailored to country-specific requirements</li>
-                </ul>
+                <div class="card-content">
+                    <ul>
+                        <li>Drive organizational strategy, coordinate party activities, and facilitate policy implementation at the executive level</li>
+                        <li>Direct digital infrastructure development, oversee technology adoption, and manage IT-driven communication initiatives</li>
+                        <li>Uphold party standards through governance oversight and ethical compliance enforcement</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
+            <div class="card">
+                <div class="card-header">
                     <div>
-                        <h3>Co-director</h3>
-                        <p class="company">Center for Computational & Data Sciences, IUB</p>
+                        <div class="card-title">Head of Research and Development</div>
+                        <div class="card-subtitle">Penta Global Ltd.</div>
                     </div>
-                    <span class="date">2023 – 2025</span>
+                    <span class="card-date">February 2021 - Present</span>
                 </div>
-                <p>At CCDS, we envision a future of transformative progress, where research, technology, and human-centric design harmoniously come together. Working on industrial products to increase collaboration between academia research and industry, and taking care of industry standard training programs.</p>
+                <div class="card-content">
+                    <ul>
+                        <li>Leading the R&D team, a combination of the Data team and Software team</li>
+                        <li>Built a highly scalable (8000 RPS) cross-platform mobile application for the Bangladesh Election Commission - 1M downloads in first 3 months</li>
+                        <li>Built a mobile app used by 42k Presiding Officers during the National Election</li>
+                        <li>Built a microservice-based data fusion platform for Bangladesh Army - 18 law agencies use it 24x7</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Data Consultant</div>
+                        <div class="card-subtitle">International Growth Center</div>
+                    </div>
+                    <span class="card-date">April 2025 - Present</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Ongoing research project with Bangladesh Bank to investigate Trade-Based Money Laundering (TBML)</li>
+                        <li>Designed and implemented automated data collection systems to extract and harmonize large-scale datasets</li>
+                        <li>Engineered robust database architectures handling high-volume data with optimized query performance</li>
+                        <li>Created interactive data visualization dashboards - energy.datahubbd.org</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Co-Director</div>
+                        <div class="card-subtitle">Center for Computational & Data Sciences, IUB</div>
+                    </div>
+                    <span class="card-date">2023 - 2025</span>
+                </div>
+                <div class="card-content">
+                    <p>Responsible for industrial products which increased collaboration between academia research and industry. Managed industry standard training programs.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Head of Data Team</div>
+                        <div class="card-subtitle">Praava Health</div>
+                    </div>
+                    <span class="card-date">September 2021 - March 2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Designed Organization-wide Data Strategy</li>
+                        <li>Built Modern Data Lakehouse from scratch</li>
+                        <li>Advanced Data Analytics (Revenue metrics dashboard, KPI, interactive reports)</li>
+                        <li>Worked as Growth Hacker between Marketing, Engineering, and Product teams</li>
+                        <li>Ensured Data Governance throughout the organization</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills">
-            <h2>Technical Skills</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-card">
                     <h3>Programming Languages</h3>
-                    <p>Python, Go, JavaScript</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
                 </div>
-                
-                <div class="skill-category">
+
+                <div class="skill-card">
                     <h3>Web Development</h3>
-                    <p>FastAPI, Django, Flask, Firebase, NodeJS, Serverless Architecture, Microservices, Docker, Kubernetes</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">NodeJS</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Serverless</span>
+                    </div>
                 </div>
-                
-                <div class="skill-category">
+
+                <div class="skill-card">
+                    <h3>DevOps & MLOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">MLFlow</span>
+                        <span class="skill-tag">KubeFlow</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">GCP</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
                     <h3>Data Engineering</h3>
-                    <p>Azure Databricks, Apache Airflow, Apache NiFi, PySpark, ELK stack, Kafka, Spark Structured Streaming</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure Databricks</span>
+                        <span class="skill-tag">Apache Airflow</span>
+                        <span class="skill-tag">Apache NiFi</span>
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">ELK Stack</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">Spark Streaming</span>
+                    </div>
                 </div>
-                
-                <div class="skill-category">
+
+                <div class="skill-card">
                     <h3>Databases</h3>
-                    <p>PostgreSQL, MySQL, BigQuery, RedShift, MongoDB, Neo4j, Cassandra</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">BigQuery</span>
+                        <span class="skill-tag">RedShift</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Neo4j</span>
+                        <span class="skill-tag">Cassandra</span>
+                    </div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>Machine Learning</h3>
-                    <p>Scikit-learn, PyTorch, TensorFlow, Jupyter</p>
+
+                <div class="skill-card">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Computer Vision</span>
+                    </div>
                 </div>
-                
-                <div class="skill-category">
+
+                <div class="skill-card">
                     <h3>Data Visualization</h3>
-                    <p>Data Lakehouse, Metabase, Streamlit, Superset, Matplotlib, Seaborn, D3</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Lakehouse</span>
+                        <span class="skill-tag">Metabase</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Superset</span>
+                        <span class="skill-tag">D3.js</span>
+                        <span class="skill-tag">Matplotlib</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Mobile Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Android</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Cross-Platform</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Publications Section -->
         <section id="publications">
-            <h2>Publications</h2>
-            
-            <div class="publication-item">
-                <h3>BanTH: A Multi-label Hate Speech Detection Dataset for Transliterated Bangla</h3>
-                <p class="venue">NAACL (A*)</p>
-                <p class="date">May 2025</p>
+            <h2 class="section-title">Research Publications</h2>
+
+            <div class="publication-card">
+                <div class="publication-title">BanglaProtha: Evaluating Vision Language Models in Underrepresented Long-tail Cultural Contexts</div>
+                <div class="publication-venue">WACV 2026 (Core Rank: A)</div>
+                <div class="publication-status">Accepted</div>
             </div>
-            
-            <div class="publication-item">
-                <h3>BanglaTLit: A Benchmark Dataset for Back-Transliteration of Romanized Bangla</h3>
-                <p class="venue">EMNLP (A*)</p>
-                <p class="date">November 2024</p>
+
+            <div class="publication-card">
+                <div class="publication-title">ChitroJera: A Regionally Relevant Visual Question Answering Dataset for Bangla</div>
+                <div class="publication-venue">ECML-PKDD 2025 (Core Rank: A)</div>
+                <div class="publication-status">Accepted</div>
             </div>
-            
-            <div class="publication-item">
-                <h3>Penta ML at EXIST 2024: Tagging Sexism in Online Multimodal Content With Attention-enhanced Modal Context</h3>
-                <p class="venue">EXIST Lab at CLEF 2024</p>
-                <p class="date">July 2024</p>
+
+            <div class="publication-card">
+                <div class="publication-title">BanTH: A Multi-label Hate Speech Detection Dataset for Transliterated Bangla</div>
+                <div class="publication-venue">NAACL 2025 (Core Rank: A*/A)</div>
+                <div class="publication-status">Accepted</div>
             </div>
-            
-            <div class="publication-item">
-                <h3>ChitroJera: A Regionally Relevant Visual Question Answering Dataset for Bangla</h3>
-                <p class="venue">NAACL (Waiting for review)</p>
+
+            <div class="publication-card">
+                <div class="publication-title">BanglaTLit: A Benchmark Dataset for Back-Transliteration of Romanized Bangla</div>
+                <div class="publication-venue">EMNLP 2024 (Core Rank: A*)</div>
+                <div class="publication-status">Accepted</div>
+            </div>
+
+            <div class="publication-card">
+                <div class="publication-title">Penta ML at EXIST 2024: Tagging Sexism in Online Multimodal Content With Attention-enhanced Modal Context</div>
+                <div class="publication-venue">EXIST Lab at CLEF 2024</div>
+                <div class="publication-status">Published</div>
+            </div>
+
+            <div class="publication-card">
+                <div class="publication-title">LP-FT-LoRA: A Three-Stage PEFT Framework for Efficient Domain Adaptation in Bangla NLP Tasks</div>
+                <div class="publication-venue">Bangla Language Processing Workshop 2025</div>
+                <div class="publication-status">Accepted</div>
+            </div>
+
+            <div class="publication-card">
+                <div class="publication-title">How Good LLMs Are at Answering Bangla Medical Visual Questions? Dataset and Benchmarking</div>
+                <div class="publication-venue">Medicine and Healthcare Bridge Program at AAAI26</div>
+                <div class="publication-status">Under Review</div>
+            </div>
+
+            <div class="publication-card">
+                <div class="publication-title">Decoupling Representation for Fine-tuning with Linear Probing and LoRA on Robust Downstream Adaptation</div>
+                <div class="publication-venue">LREC Conference</div>
+                <div class="publication-status">Under Review</div>
             </div>
         </section>
 
-        <!-- Blog Section -->
-        <section id="blog">
-            <h2>Blog</h2>
-            
-            <div class="blog-post" onclick="alert('Blog post functionality coming soon! This will link to individual blog posts.')">
-                <h3>Welcome to My Blog</h3>
-                <p class="meta">July 30, 2025 • 2 min read</p>
-                <p class="excerpt">I'm excited to start sharing my thoughts and experiences in software engineering, data science, and research. Stay tuned for posts about technology trends, research insights, and tutorials...</p>
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">Education & Certifications</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Bachelor of Science</div>
+                        <div class="card-subtitle">Computer Science & Engineering</div>
+                    </div>
+                    <span class="card-date">2012</span>
+                </div>
+                <div class="card-content">
+                    <p>University of Dhaka, Bangladesh</p>
+                </div>
             </div>
-            
-            <div class="blog-post" onclick="alert('Blog post functionality coming soon! This will link to individual blog posts.')">
-                <h3>Building Scalable Microservices for Election Systems</h3>
-                <p class="meta">Coming Soon</p>
-                <p class="excerpt">Learn about the challenges and solutions in building a highly scalable system that handles 8000 requests per second for the Bangladesh Election Commission...</p>
-            </div>
-            
-            <div class="blog-post" onclick="alert('Blog post functionality coming soon! This will link to individual blog posts.')">
-                <h3>Data Engineering Best Practices</h3>
-                <p class="meta">Coming Soon</p>
-                <p class="excerpt">A comprehensive guide to building robust data pipelines, from collection to visualization, based on my experience with national-scale datasets...</p>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Professional Certifications</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Deep Learning Specialization</li>
+                        <li>Certified Data Scientist in Python, Dataquest</li>
+                        <li>Certified Data Scientist in R Track, Datacamp</li>
+                        <li>Mastering Product Management, Reforge Fall Cohort 2022</li>
+                        <li>Data for Product Manager, Reforge Summer 2022 Cohort</li>
+                        <li>Certified Scrum Master</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Download Resume Button -->
+    <a href="Resume of Md-Farhad-Alam-Bhuiyan.pdf" download class="download-resume">
+        <span>📄</span> Download Resume
+    </a>
+
     <script>
         function showSection(sectionId) {
-            // Hide all sections
+            // Remove active class from all sections and nav links
             const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
             sections.forEach(section => {
                 section.classList.remove('active');
             });
-            
-            // Show selected section
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add active class to selected section and nav link
             const selectedSection = document.getElementById(sectionId);
+            const selectedLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+
             if (selectedSection) {
                 selectedSection.classList.add('active');
             }
-            
+
+            if (selectedLink) {
+                selectedLink.classList.add('active');
+            }
+
             // Update URL hash
             window.location.hash = sectionId;
         }
@@ -511,6 +947,16 @@
 
         window.addEventListener('hashchange', handleHashChange);
         window.addEventListener('load', handleHashChange);
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1);
+                showSection(targetId);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
 </html>
